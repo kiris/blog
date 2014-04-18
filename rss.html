@@ -5,14 +5,136 @@
         <link>http://kiris.github.com/blog/</link>
         <description>書きたいこと、書けば良いのよ</description>
         <language>en-us</language>
-        <pubDate>Fri, 18 Apr 2014 00:00:00 +0900</pubDate>
+        <pubDate>Sat, 19 Apr 2014 00:00:00 +0900</pubDate>
         
+        <item>
+            <link>http://kiris.github.com/blog/2014/04/19/social_buttons.html</link>
+            <guid>http://kiris.github.com/blog/2014/04/19/social_buttons.html</guid>
+            <title><![CDATA[ソーシャルボタンを設置した]]></title>
+            <description><![CDATA[<div class="section" id="id1">
+<h1>ソーシャルボタンを設置した<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>　Facebook・Twitter・はてブ・はてなスターのあたり。page.htmlとlayout.htmlは以下のようにした。</p>
+<p>_templates/page.html</p>
+<div class="highlight-html"><div class="highlight"><pre>{% block body %}
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;body&quot;</span><span class="nt">&gt;</span>
+    {{ timestamp(metadata.formatted_date) }}
+    {% block buttons %}
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;social-buttons&quot;</span><span class="nt">&gt;</span>
+        {# Twitter #}
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;social-button button-twitter&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;https://twitter.com/share&quot;</span> <span class="na">class=</span><span class="s">&quot;twitter-share-button&quot;</span><span class="nt">&gt;</span>Tweet<span class="nt">&lt;/a&gt;</span>
+          <span class="nt">&lt;script&gt;</span><span class="o">!</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">,</span><span class="nx">s</span><span class="p">,</span><span class="nx">id</span><span class="p">){</span><span class="kd">var</span> <span class="nx">js</span><span class="p">,</span><span class="nx">fjs</span><span class="o">=</span><span class="nx">d</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="nx">s</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">d</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">id</span><span class="p">)){</span><span class="nx">js</span><span class="o">=</span><span class="nx">d</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span><span class="nx">js</span><span class="p">.</span><span class="nx">id</span><span class="o">=</span><span class="nx">id</span><span class="p">;</span><span class="nx">js</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s2">&quot;//platform.twitter.com/widgets.js&quot;</span><span class="p">;</span><span class="nx">fjs</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">js</span><span class="p">,</span><span class="nx">fjs</span><span class="p">);}}(</span><span class="nb">document</span><span class="p">,</span><span class="s2">&quot;script&quot;</span><span class="p">,</span><span class="s2">&quot;twitter-wjs&quot;</span><span class="p">);</span><span class="nt">&lt;/script&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+
+        {# Facebook Like #}
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;social-button button-facebook&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;fb-like&quot;</span> <span class="na">data-href=</span><span class="s">&quot;http://kiris.github.io/blog/{{ pagename }}{{ file_suffix }}&quot;</span> <span class="na">data-send=</span><span class="s">&quot;false&quot;</span> <span class="na">data-layout=</span><span class="s">&quot;button_count&quot;</span> <span class="na">data-width=</span><span class="s">&quot;200&quot;</span> <span class="na">data-show-faces=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+
+        {# Hatena Bookmark #}
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;social-button button-hatena-bookmark&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://b.hatena.ne.jp/entry/http://kiris.github.io/blog/{{ pagename }}{{ file_suffix }}&quot;</span> <span class="na">class=</span><span class="s">&quot;hatena-bookmark-button&quot;</span> <span class="na">data-hatena-bookmark-title=</span><span class="s">&quot;{{ title }} - {{ project }}&quot;</span> <span class="na">data-hatena-bookmark-layout=</span><span class="s">&quot;simple-balloon&quot;</span> <span class="na">title=</span><span class="s">&quot;このエントリーをはてなブックマークに追加&quot;</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">&quot;http://b.st-hatena.com/images/entry-button/button-only.gif&quot;</span> <span class="na">alt=</span><span class="s">&quot;このエントリーをはてなブックマークに追加&quot;</span> <span class="na">width=</span><span class="s">&quot;20&quot;</span> <span class="na">height=</span><span class="s">&quot;20&quot;</span> <span class="na">style=</span><span class="s">&quot;border: none;&quot;</span> <span class="nt">/&gt;&lt;/a&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+
+        {# Hatena Star #}
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;social-button button-hatena-star&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;hatenastar&quot;</span><span class="nt">&gt;</span> <span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;clearfix&quot;</span> <span class="nt">&gt;&lt;/div&gt;</span>
+    {% endblock %}
+    {{ body }}
+    {{ post_meta(metadata) }}
+    {{ comments }}
+  <span class="nt">&lt;/div&gt;</span>
+{% endblock %}
+</pre></div>
+</div>
+<p>_templates/layout.html</p>
+<div class="highlight-html"><div class="highlight"><pre>{% block extrahead %}
+  {# for Hatena Bookmark #}
+  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;http://b.st-hatena.com/js/bookmark_button.js&quot;</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span> <span class="na">async=</span><span class="s">&quot;async&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+  {# for Hatena Star #}
+  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;http://s.hatena.ne.jp/js/HatenaStar.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+    <span class="nx">Hatena</span><span class="p">.</span><span class="nx">Star</span><span class="p">.</span><span class="nx">Token</span> <span class="o">=</span> <span class="s1">'7e91f42d4154f12a8d87065ee97b8d9e5d7c5bc9'</span><span class="p">;</span>
+    <span class="nx">Hatena</span><span class="p">.</span><span class="nx">Star</span><span class="p">.</span><span class="nx">SiteConfig</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">entryNodes</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s1">'div.body'</span><span class="o">:</span> <span class="p">{</span>
+          <span class="nx">uri</span><span class="o">:</span> <span class="s1">'.headerlink'</span><span class="p">,</span>
+          <span class="nx">title</span><span class="o">:</span> <span class="s1">'h1'</span><span class="p">,</span>
+          <span class="nx">container</span><span class="o">:</span> <span class="s1">'.hatenastar'</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">};</span>
+  <span class="nt">&lt;/script&gt;</span>
+
+  {# for Facebook Like #}
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;fb-root&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;script&gt;</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">,</span> <span class="nx">s</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">js</span><span class="p">,</span> <span class="nx">fjs</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="nx">s</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">id</span><span class="p">))</span> <span class="k">return</span><span class="p">;</span>
+    <span class="nx">js</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span> <span class="nx">js</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="nx">id</span><span class="p">;</span>
+    <span class="nx">js</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&quot;//connect.facebook.net/ja_JP/all.js#xfbml=1&amp;appId=691667727558731&quot;</span><span class="p">;</span>
+    <span class="nx">fjs</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">js</span><span class="p">,</span> <span class="nx">fjs</span><span class="p">);</span>
+  <span class="p">}(</span><span class="nb">document</span><span class="p">,</span> <span class="s1">'script'</span><span class="p">,</span> <span class="s1">'facebook-jssdk'</span><span class="p">));</span><span class="nt">&lt;/script&gt;</span>
+{% endblock %}
+</pre></div>
+</div>
+<p>　はてなスター用のパーマリンクは、Tinkerer(Sphinx)の仕組みで作って貰うことに。</p>
+<div class="highlight-py"><div class="highlight"><pre><span class="n">html_add_permalinks</span> <span class="o">=</span> <span class="bp">True</span>
+</pre></div>
+</div>
+<p>　最後に、ボタンがずれてていたのでスタイルを追加。</p>
+<p>_static/.style.css</p>
+<div class="highlight-css"><div class="highlight"><pre><span class="c">/* social-buttons */</span>
+<span class="nc">.social-buttons</span> <span class="p">{</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">10px</span> <span class="m">0px</span> <span class="m">0px</span> <span class="m">0px</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">0px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.social-buttons</span> <span class="nc">.social-button</span> <span class="p">{</span>
+  <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">0px</span> <span class="m">4px</span> <span class="m">0px</span> <span class="m">0px</span><span class="p">;</span>
+  <span class="k">padding</span><span class="o">:</span> <span class="m">0px</span><span class="p">;</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.social-buttons</span> <span class="nc">.button-facebook</span><span class="o">,</span>
+<span class="nc">.social-buttons</span> <span class="nc">.button-hatena-star</span> <span class="p">{</span>
+  <span class="k">margin-top</span><span class="o">:</span> <span class="m">-2px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">iframe</span><span class="nc">.twitter-share-button</span> <span class="p">{</span>
+  <span class="k">width</span><span class="o">:</span> <span class="m">88px</span><span class="o">!</span> <span class="n">important</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.headerlink</span> <span class="p">{</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>conf.py</p>
+<div class="section" id="id2">
+<h2>参考にしたサイト<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://te2uma.com/blog/2013/03/29/tinkerer_with_social_button.html">Tinkererで作ったブログにソーシャルボタンを追加する — 鉄馬の工具箱</a></li>
+<li><a class="reference external" href="http://yukimemi.bitbucket.org/blog/html/2013/06/15/add_social_button.html">Tinkerer にソーシャルボタン追加 — yukimemi’s blog</a></li>
+<li><a class="reference external" href="http://blog.shomah4a.net/2013/03/02/hatena_star.html">Tinkerer にはてなスターでもつけてみる — プログラマのネタ帳 二冊目</a></li>
+<li><a class="reference external" href="http://d.hatena.ne.jp/hatenastar/20070707">はてなスターをブログに設置するには - はてなスター日記</a></li>
+</ul>
+</div>
+</div>]]></description>
+             <pubDate>Sat, 19 Apr 2014 00:00:00 +0900</pubDate>
+        </item>
+    
         <item>
             <link>http://kiris.github.com/blog/2014/04/18/font.html</link>
             <guid>http://kiris.github.com/blog/2014/04/18/font.html</guid>
             <title><![CDATA[Webフォント(M+)を使うようにした]]></title>
             <description><![CDATA[<div class="section" id="web-m">
-<h1>Webフォント(M+)を使うようにした</h1>
+<h1>Webフォント(M+)を使うようにした<a class="headerlink" href="#web-m" title="Permalink to this headline">¶</a></h1>
 <p>　デザインはともかく、フォントが汚ないのは我慢ならない。 <a class="reference external" href="http://mplus-fonts.sourceforge.jp/webfonts">M+ FONTS</a> がWEBフォントを用意しているので、これを使ってみる。</p>
 <p>_templates/page.html</p>
 <div class="highlight-none"><div class="highlight"><pre>{% extends &quot;!page.html&quot; %}
@@ -43,7 +165,7 @@
             <guid>http://kiris.github.com/blog/2014/04/17/test.html</guid>
             <title><![CDATA[Tinkererで新しいブログを初めました]]></title>
             <description><![CDATA[<div class="section" id="tinkerer">
-<h1>Tinkererで新しいブログを初めました</h1>
+<h1>Tinkererで新しいブログを初めました<a class="headerlink" href="#tinkerer" title="Permalink to this headline">¶</a></h1>
 <p>　体制等を気にしている内に書かなくなることが今までの常だったので、細かいことを気にせず、継続して書き続けることが目標。</p>
 <p>　デザインとかも、公開してから考えるよ。</p>
 </div>]]></description>

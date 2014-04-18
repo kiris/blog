@@ -1,3 +1,4 @@
+/* fonts */
 body {
   font-family: mplus-2c-light, sans-serif;
 }
@@ -8,4 +9,30 @@ h1 {
 
 pre {
   font-family: mplus-2m-regular, sans-serif;
+}
+
+/* social-buttons */
+.social-buttons {
+  margin: 10px 0px 0px 0px;
+  padding: 0px;
+}
+
+.social-buttons .social-button {
+  float: left;
+  margin: 0px 4px 0px 0px;
+  padding: 0px;
+  display: inline;
+}
+
+.social-buttons .button-facebook,
+.social-buttons .button-hatena-star {
+  margin-top: -2px;
+}
+
+iframe.twitter-share-button {
+  width: 88px !important;
+}
+
+.headerlink {
+  display: none;
 }

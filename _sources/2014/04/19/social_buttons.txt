@@ -1,0 +1,132 @@
+ソーシャルボタンを設置した
+==========================
+
+　Facebook・Twitter・はてブ・はてなスターのあたり。page.htmlとlayout.htmlは以下のようにした。
+
+_templates/page.html
+
+.. code-block:: html
+
+   {% block body %}
+     <div class="body">
+       {{ timestamp(metadata.formatted_date) }}
+       {% block buttons %}
+         <div class="social-buttons">
+           {# Twitter #}
+           <div class="social-button button-twitter">
+             <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+           </div>
+
+           {# Facebook Like #}
+           <div class="social-button button-facebook">
+             <div class="fb-like" data-href="http://kiris.github.io/blog/{{ pagename }}{{ file_suffix }}" data-send="false" data-layout="button_count" data-width="200" data-show-faces="true"></div>
+           </div>
+
+           {# Hatena Bookmark #}
+           <div class="social-button button-hatena-bookmark">
+             <a href="http://b.hatena.ne.jp/entry/http://kiris.github.io/blog/{{ pagename }}{{ file_suffix }}" class="hatena-bookmark-button" data-hatena-bookmark-title="{{ title }} - {{ project }}" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
+           </div>
+
+           {# Hatena Star #}
+           <div class="social-button button-hatena-star">
+             <span class="hatenastar"> </span>
+           </div>
+         </div>
+         <div class="clearfix" ></div>
+       {% endblock %}
+       {{ body }}
+       {{ post_meta(metadata) }}
+       {{ comments }}
+     </div>
+   {% endblock %}
+
+
+_templates/layout.html
+
+.. code-block:: html
+
+   {% block extrahead %}
+     {# for Hatena Bookmark #}
+     <script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+     {# for Hatena Star #}
+     <script type="text/javascript" src="http://s.hatena.ne.jp/js/HatenaStar.js"></script>
+     <script type="text/javascript">
+       Hatena.Star.Token = '7e91f42d4154f12a8d87065ee97b8d9e5d7c5bc9';
+       Hatena.Star.SiteConfig = {
+         entryNodes: {
+           'div.body': {
+             uri: '.headerlink',
+             title: 'h1',
+             container: '.hatenastar'
+           }
+         }
+       };
+     </script>
+
+     {# for Facebook Like #}
+     <div id="fb-root"></div>
+     <script>(function(d, s, id) {
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) return;
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1&appId=691667727558731";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));</script>
+   {% endblock %}
+
+　はてなスター用のパーマリンクは、Tinkerer(Sphinx)の仕組みで作って貰うことに。
+
+.. code-block:: py
+
+   html_add_permalinks = True
+
+
+　最後に、ボタンがずれてていたのでスタイルを追加。
+
+_static/.style.css
+
+.. code-block:: css
+
+   /* social-buttons */
+   .social-buttons {
+     margin: 10px 0px 0px 0px;
+     padding: 0px;
+   }
+
+   .social-buttons .social-button {
+     float: left;
+     margin: 0px 4px 0px 0px;
+     padding: 0px;
+     display: inline;
+   }
+
+   .social-buttons .button-facebook,
+   .social-buttons .button-hatena-star {
+     margin-top: -2px;
+   }
+
+   iframe.twitter-share-button {
+     width: 88px! important;
+   }
+
+   .headerlink {
+     display: none;
+   }
+
+conf.py
+
+
+参考にしたサイト
+----------------
+
+* `Tinkererで作ったブログにソーシャルボタンを追加する — 鉄馬の工具箱 <http://te2uma.com/blog/2013/03/29/tinkerer_with_social_button.html>`_
+* `Tinkerer にソーシャルボタン追加 — yukimemi's blog <http://yukimemi.bitbucket.org/blog/html/2013/06/15/add_social_button.html>`_
+* `Tinkerer にはてなスターでもつけてみる — プログラマのネタ帳 二冊目 <http://blog.shomah4a.net/2013/03/02/hatena_star.html>`_
+* `はてなスターをブログに設置するには - はてなスター日記 <http://d.hatena.ne.jp/hatenastar/20070707>`_
+
+.. author:: default
+.. categories:: none
+.. tags:: 雑記, Tinkerer
+.. comments::
