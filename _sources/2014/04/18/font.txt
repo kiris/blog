@@ -1,0 +1,35 @@
+Webフォント(M+)を使うようにした
+===============================
+
+　デザインはともかく、フォントが汚ないのは我慢ならない。 `M+ FONTS <http://mplus-fonts.sourceforge.jp/webfonts/>`_ がWEBフォントを用意してくれているので、そちらを使ってみる。
+
+
+_templates/page.html
+
+.. code-block:: none
+
+   {% extends "!page.html" %}
+
+   {% set css_files = css_files + ["http://mplus-fonts.sourceforge.jp/webfonts/mplus_webfonts.css", "_static/style.css"] %}
+
+
+_static/style.css
+
+.. code-block:: css
+
+   body {
+     font-family: mplus-2c-light, sans-serif;
+   }
+
+   h1 {
+     font-family: mplus-2c-reguler, sans-serif;
+   }
+
+   pre {
+     font-family: mplus-2m-regular, sans-serif;
+   }
+
+.. author:: default
+.. categories:: none
+.. tags:: 雑記,tinkerer
+.. comments::

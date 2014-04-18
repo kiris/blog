@@ -5,16 +5,47 @@
         <link>http://kiris.github.com/blog/</link>
         <description>書きたいこと、書けば良いのよ</description>
         <language>en-us</language>
-        <pubDate>Thu, 17 Apr 2014 00:00:00 +0900</pubDate>
+        <pubDate>Fri, 18 Apr 2014 00:00:00 +0900</pubDate>
         
+        <item>
+            <link>http://kiris.github.com/blog/2014/04/18/font.html</link>
+            <guid>http://kiris.github.com/blog/2014/04/18/font.html</guid>
+            <title><![CDATA[Webフォント(M+)を使うようにした]]></title>
+            <description><![CDATA[<div class="section" id="web-m">
+<h1>Webフォント(M+)を使うようにした</h1>
+<p>　デザインはともかく、フォントが汚ないのは我慢ならない。ひとまず <a class="reference external" href="http://mplus-fonts.sourceforge.jp/webfonts">M+ FONTS</a> にWEBフォントが用意されているので、そちらを使ってみる。</p>
+<p>_templates/page.html</p>
+<div class="highlight-none"><div class="highlight"><pre>{% extends &quot;!page.html&quot; %}
+
+{% set css_files = css_files + [&quot;http://mplus-fonts.sourceforge.jp/webfonts/mplus_webfonts.css&quot;, &quot;_static/style.css&quot;] %}
+</pre></div>
+</div>
+<p>_static/style.css</p>
+<div class="highlight-css"><div class="highlight"><pre><span class="nt">body</span> <span class="p">{</span>
+  <span class="k">font-family</span><span class="o">:</span> <span class="n">mplus</span><span class="m">-2</span><span class="n">c</span><span class="o">-</span><span class="n">light</span><span class="o">,</span> <span class="k">sans-serif</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">h1</span> <span class="p">{</span>
+  <span class="k">font-family</span><span class="o">:</span> <span class="n">mplus</span><span class="m">-2</span><span class="n">c</span><span class="o">-</span><span class="n">reguler</span><span class="o">,</span> <span class="k">sans-serif</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">pre</span> <span class="p">{</span>
+  <span class="k">font-family</span><span class="o">:</span> <span class="n">mplus</span><span class="m">-2</span><span class="n">m</span><span class="o">-</span><span class="n">regular</span><span class="o">,</span> <span class="k">sans-serif</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>]]></description>
+             <pubDate>Fri, 18 Apr 2014 00:00:00 +0900</pubDate>
+        </item>
+    
         <item>
             <link>http://kiris.github.com/blog/2014/04/17/test.html</link>
             <guid>http://kiris.github.com/blog/2014/04/17/test.html</guid>
             <title><![CDATA[Tinkererで新しいブログを初めました]]></title>
             <description><![CDATA[<div class="section" id="tinkerer">
 <h1>Tinkererで新しいブログを初めました</h1>
-<p>　体制等を気にして書かなくなることが今までの常だったので、細かいことを気にせずに、継続して書き続けることが目標です。</p>
-<p>　デザインとかも後からなんとかする。</p>
+<p>　体制等を気にしている内に書かなくなることが今までの常だったので、細かいことを気にせず、継続して書き続けることが目標。</p>
+<p>　デザインとかも、公開してから考えるよ。</p>
 </div>]]></description>
              <pubDate>Thu, 17 Apr 2014 00:00:00 +0900</pubDate>
         </item>
