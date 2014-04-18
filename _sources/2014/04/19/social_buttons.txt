@@ -78,6 +78,8 @@ _templates/layout.html
 
 　はてなスター用のパーマリンクは、Tinkerer(Sphinx)の仕組みで作って貰うことに。
 
+conf.py
+
 .. code-block:: py
 
    html_add_permalinks = True
@@ -114,8 +116,6 @@ _static/.style.css
    .headerlink {
      display: none;
    }
-
-conf.py
 
 
 参考にしたサイト
