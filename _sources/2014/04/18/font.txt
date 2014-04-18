@@ -1,7 +1,7 @@
 Webフォント(M+)を使うようにした
 ===============================
 
-　デザインはともかく、フォントが汚ないのは我慢ならない。 `M+ FONTS <http://mplus-fonts.sourceforge.jp/webfonts/>`_ がWEBフォントを用意しているので、そちらを使ってみる。
+　デザインはともかく、フォントが汚ないのは我慢ならない。 `M+ FONTS <http://mplus-fonts.sourceforge.jp/webfonts/>`_ がWEBフォントを用意しているので、これを使ってみる。
 
 
 _templates/page.html
