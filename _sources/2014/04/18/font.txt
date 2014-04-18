@@ -1,11 +1,7 @@
 Webフォント(M+)を使うようにした
 ===============================
 
-<<<<<<< HEAD
-　デザインはともかく、フォントが汚ないのは我慢ならない。 `M+ FONTS <http://mplus-fonts.sourceforge.jp/webfonts/>`_ がWEBフォントを用意してくれているので、そちらを使ってみる。
-=======
-　デザインはともかく、フォントが汚ないのは我慢ならない。ひとまず `M+ FONTS <http://mplus-fonts.sourceforge.jp/webfonts/>`_ にWEBフォントが用意されているので、そちらを使ってみる。
->>>>>>> 63d9f21... post 'font' entry
+　デザインはともかく、フォントが汚ないのは我慢ならない。 `M+ FONTS <http://mplus-fonts.sourceforge.jp/webfonts/>`_ がWEBフォントを用意しているので、そちらを使ってみる。
 
 
 _templates/page.html
