@@ -1,0 +1,18 @@
+/** font-faces */
+@font-face {
+  font-family: mplus-2c-regular;
+  src: url('../font/mplus-2c-regular.ttf')
+       format("truetype");
+}
+
+@font-face {
+  font-family: mplus-2m-regular;
+  src: url('../font/mplus-2m-regular.ttf')
+       format("truetype");
+}
+
+@font-face {
+  font-family: mplus-2c-light;
+  src: url('../font/mplus-2c-light.ttf')
+       format("truetype");
+}

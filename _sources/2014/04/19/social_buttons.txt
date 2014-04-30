@@ -1,7 +1,10 @@
 ソーシャルボタンを設置した
 ==========================
 
-　Facebook・Twitter・はてブ・はてなスターのあたり。page.htmlとlayout.htmlは以下のようにした。
+　Facebook・Twitter・はてブ・はてなスターのあたり。
+
+変更内容
+--------
 
 _templates/page.html
 
@@ -128,5 +131,5 @@ _static/.style.css
 
 .. author:: default
 .. categories:: none
-.. tags:: 雑記, Tinkerer
+.. tags:: Tinkerer
 .. comments::

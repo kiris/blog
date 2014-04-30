@@ -1,0 +1,46 @@
+WEBフォントを遅延ロードするようにしました
+=========================================
+
+　WEBフォントが読み込まれるまで文字が表示されない問題を解決する為に、 `Web Font Loader <https://github.com/typekit/webfontloader>`_ を使ってWEBフォントを遅延ロードするようにしました。
+
+_templates/layout.html
+
+.. code-block:: html
+
+   <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+   <script type="text/javascript">
+     WebFontConfig = {
+       custom: {
+         families: ['mplus-2c-regular', 'mplus-2m-regular', 'mplus-2c-light'],
+         urls: ['http://mplus-fonts.sourceforge.jp/webfonts/mplus_webfonts.css']
+       },
+       timeout: 10000
+     };
+   </script>
+
+_static/style.css
+
+.. code-block:: css
+
+   .wf-mplus2cregular-n4-active h1 {
+     font-family: mplus-2c-regular, sans-serif;
+   }
+
+   .wf-mplus2mregular-n4-active pre {
+     font-family: mplus-2m-regular, sans-serif;
+   }
+
+   .wf-mplus2clight-n4-active body {
+     font-family: mplus-2c-light, sans-serif;
+   }
+
+
+　ついでにレスポンシブUIに対応しました。テーマをmodern5に変更して微調整しただけなんだけど。もうちょっと「キャラバン」っぽいデザインや配色にしたいけどそれは追々やって行こう。
+
+----------------
+
+
+.. author:: default
+.. categories:: none
+.. tags:: Tinkerer
+.. comments::

@@ -1,0 +1,38 @@
+/* fonts */
+.wf-mplus2cregular-n4-active h1 {
+  font-family: mplus-2c-regular, sans-serif;
+}
+
+.wf-mplus2mregular-n4-active pre {
+  font-family: mplus-2m-regular, sans-serif;
+}
+
+.wf-mplus2clight-n4-active body {
+  font-family: mplus-2c-light, sans-serif;
+}
+
+/* social-buttons */
+.social-buttons {
+  margin: 10px 0px 0px 0px;
+  padding: 0px;
+}
+
+.social-buttons .social-button {
+  float: left;
+  margin: 0px 4px 0px 0px;
+  padding: 0px;
+  display: inline;
+}
+
+.social-buttons .button-facebook,
+.social-buttons .button-hatena-star {
+  margin-top: -2px;
+}
+
+iframe.twitter-share-button {
+  width: 88px !important;
+}
+
+.headerlink {
+  display: none;
+}

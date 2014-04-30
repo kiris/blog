@@ -31,5 +31,5 @@ _static/style.css
 
 .. author:: default
 .. categories:: none
-.. tags:: 雑記,tinkerer
+.. tags:: Tinkerer
 .. comments::
