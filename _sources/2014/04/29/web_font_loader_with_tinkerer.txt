@@ -27,6 +27,7 @@ _templates/layout.html
      })();
    </script>
 
+
 _static/style.css
 
 .. code-block:: css
@@ -46,7 +47,6 @@ _static/style.css
 
 　ついでにレスポンシブUIに対応しました。テーマをmodern5に変更して微調整しただけなんだけど。もうちょっと「キャラバン」っぽいデザインや配色にしたいけどそれは追々やって行こう。
 
-----------------
 
 
 .. author:: default
