@@ -15,6 +15,27 @@
 <h1>WEBフォントを遅延ロードするようにしました<a class="headerlink" href="#web" title="Permalink to this headline">¶</a></h1>
 <p>　WEBフォントが読み込まれるまで文字が表示されない問題を解決する為に、 <a class="reference external" href="https://github.com/typekit/webfontloader">Web Font Loader</a> を使ってWEBフォントを遅延ロードするようにしました。</p>
 <p>_templates/layout.html</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+  <span class="nx">WebFontConfig</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">custom</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">families</span><span class="o">:</span> <span class="p">[</span><span class="s1">'mplus-2c-regular'</span><span class="p">,</span> <span class="s1">'mplus-2m-regular'</span><span class="p">,</span> <span class="s1">'mplus-2c-light'</span><span class="p">],</span>
+      <span class="nx">urls</span><span class="o">:</span> <span class="p">[</span><span class="s1">'http://mplus-fonts.sourceforge.jp/webfonts/mplus_webfonts.css'</span><span class="p">]</span>
+    <span class="p">},</span>
+    <span class="nx">timeout</span><span class="o">:</span> <span class="mi">10000</span>
+  <span class="p">};</span>
+
+  <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">wf</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'script'</span><span class="p">);</span>
+    <span class="nx">wf</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'https:'</span> <span class="o">==</span> <span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">protocol</span> <span class="o">?</span> <span class="s1">'https'</span> <span class="o">:</span> <span class="s1">'http'</span><span class="p">)</span> <span class="o">+</span>
+              <span class="s1">'://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js'</span><span class="p">;</span>
+    <span class="nx">wf</span><span class="p">.</span><span class="nx">type</span> <span class="o">=</span> <span class="s1">'text/javascript'</span><span class="p">;</span>
+    <span class="nx">wf</span><span class="p">.</span><span class="nx">async</span> <span class="o">=</span> <span class="s1">'true'</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">'script'</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="nx">s</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">wf</span><span class="p">,</span> <span class="nx">s</span><span class="p">);</span>
+  <span class="p">})();</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre></div>
+</div>
 <p>_static/style.css</p>
 <div class="highlight-css"><div class="highlight"><pre><span class="nc">.wf-mplus2cregular-n4-active</span> <span class="nt">h1</span> <span class="p">{</span>
   <span class="k">font-family</span><span class="o">:</span> <span class="n">mplus</span><span class="m">-2</span><span class="n">c</span><span class="o">-</span><span class="n">regular</span><span class="o">,</span> <span class="k">sans-serif</span><span class="p">;</span>

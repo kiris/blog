@@ -6,6 +6,7 @@ WEBフォントを遅延ロードするようにしました
 _templates/layout.html
 
 .. code-block:: html
+
    <script type="text/javascript">
      WebFontConfig = {
        custom: {
