@@ -24,11 +24,6 @@
   display: inline;
 }
 
-.social-buttons .button-facebook,
-.social-buttons .button-hatena-star {
-  margin-top: -2px;
-}
-
 iframe.twitter-share-button {
   width: 88px !important;
 }
